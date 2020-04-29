@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>login_demo03</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link th:href="@{/webjars/bootstrap/4.1.2/css/bootstrap.min.css}" href="demo02/demo03/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="demo02/demo03/css/font-awesome.css?v=4.4.0" th:href="@{/demo02/demo03/css/font-awesome.css?v=4.4.0}" rel="stylesheet">
+		<link href="demo02/demo03/css/animate.css" th:href="@{/demo02/demo03/css/animate.css}" rel="stylesheet">
+		<link href="demo02/demo03/css/style.css?v=4.1.0" th:href="@{/demo02/demo03/css/style.css?v=4.1.0}" rel="stylesheet">
+		<!--[if lt IE 9]>
+		    <meta http-equiv="refresh" content="0;ie.html" />
+		    <![endif]-->
+		<script>
+			if(window.top !== window.self) {
+				window.top.location = window.location;
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="page login-page">
+			<div class="container d-flex align-items-center">
+				<div class="form-holder has-shadow">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="info d-flex align-items-center">
+								<div class="content">
+									<div class="logo">
+										<h1 th:text="#{login.tip}">欢迎登录</h1>
+									</div>
+									<p>广州天码防伪科技溯源系统</p>
+								</div>
+							</div>
+						</div>
+						<!-- Form Panel    -->
+						<div class="col-lg-6 bg-white">
+							<div class="form d-flex align-items-center">
+								<div class="content">
+									<form method="post" th:action="@{/user/login}">
+										<div class="form-group">
+											<input type="text" name="username" th:placeholder="#{login.username}" placeholder="用户名" class="input-material">
+										</div>
+										<div class="form-group">
+											<input type="password" name="password" th:placeholder="#{login.password}" placeholder="密码" class="input-material">
+										</div>
+										<div>
+										<div class="form-group">
+											<p style="color: red" th:text="${msg}" th:if="${ not #strings.isEmpty(msg)}"></p>
+										</div>
+
+											<div class="custom-control custom-checkbox " style="float: right;">
+												<input type="checkbox" class="custom-control-input">
+												<label class="custom-control-label" for="check2">自动登录</label>
+											</div>
+											<div class="custom-control custom-checkbox " style="float: right;">
+												<input type="checkbox" class="custom-control-input">
+												<label class="custom-control-label" for="check1" th:text="#{login.remember}">记住密码&nbsp;&nbsp;</label>
+											</div>
+										</div>
+										<button type="submit" class="btn btn-primary" th:text="#{login.btn}">登录</button>
+										<a class="btn btn-sm" th:href="@{/login.html(l='zh_CN')}">中文</a>
+										<a class="btn btn-sm" th:href="@{/login.html(l='en_US')}">English</a>
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- js-->
+		<script th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"  src="demo02/demo03/js/jquery.min.js"></script>
+		<script th:src="@{/webjars/bootstrap/4.1.2/js/bootstrap.min.js}" src="demo02/demo03/js/bootstrap.min.js"></script>
+
+	</body>
+
+</html>
